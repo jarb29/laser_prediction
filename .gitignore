@@ -1,0 +1,8 @@
+*.venv/
+app/__pycache__/
+modules/__pycache__/
+utils/__pycache__/
+notebooks/.ipynb_checkpoints/
+data/
+.vscode
+.idea
