@@ -2,10 +2,9 @@ site_name: Laser Prediction Documentation
 
 nav:
   - Home: index.md
-  - Getting Started:
-      - Prerequisites: prerequisites.md
-      - Installation: installation.md
-      - Usage: usage.md
+  - Prerequisites: prerequisites.md
+  - Installation: installation.md
+  - Usage: usage.md
   - Model Usage: model.md
 
 plugins:
