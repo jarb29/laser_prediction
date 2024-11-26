@@ -30,7 +30,15 @@ The following technologies and tools are used in this project:
 - **AWS CLI**: A unified tool to manage AWS services from the command line.
 
 ## Project Structure
-. ├── artifacts │   └── models │ └── laser_pycaret_pipeline.pkl ├── app │   └── lambda.py ├── .dockerignore ├── Dockerfile ├── requirements.txt └── README.md
+├── artifacts 
+│ └── models 
+│ └── laser_pycaret_pipeline.pkl 
+├── app 
+│ └── lambda.py 
+├── .dockerignore 
+├── Dockerfile 
+├── requirements.txt 
+└── README.md
 
 - **artifacts/models/**: Directory containing the machine learning model.
 - **app/lambda.py**: Main Python script for the AWS Lambda function.
