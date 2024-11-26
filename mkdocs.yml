@@ -4,6 +4,7 @@ nav:
   - Getting Started:
       - Prerequisites: docs/prerequisites.md
       - Installation: docs/installation.md
+      - Usage: docs/usage.md
   - Model Usage: model.md
 
 plugins:
