@@ -1,10 +1,11 @@
-name: Deploy HDI Challenge Documentation
+name: Deploy Laser Documentation
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
 permissions:
   contents: write
   pages: write
@@ -24,7 +25,11 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -r requirements/requirements-docs.txt
+        run: |
+          pip install mkdocs
+          pip install mkdocs-material
+          pip install mkdocstrings  # Installing the mkdocstrings plugin
+          pip install -r requirements/requirements-docs.txt
 
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force
