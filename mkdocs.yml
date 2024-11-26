@@ -5,7 +5,6 @@ nav:
       - Prerequisites: docs/prerequisites.md
       - Installation: docs/installation.md
   - Model Usage: model.md
-  - Notebooks: notebooks.md
   - API Reference: api-reference.md
   - Contributing: contributing.md
   - License: license.md
