@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 jobs:
-  build_mkdocs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,36 +26,41 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs
-          pip install mkdocs-material
-          pip install mkdocstrings  # Installing the mkdocstrings plugin
+          pip install mkdocs mkdocs-material mkdocstrings
           pip install -r requirements/requirements-docs.txt
+
+      - name: Build documentation
+        run: mkdocs build
 
       - name: Deploy to GitHub Pages
         run: mkdocs gh-deploy --force
 
-  deploy_mkdocs:
-    needs: build_mkdocs
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           ref: gh-pages
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v2
         with:
-          enablement: true  # Explicitly enable GitHub Pages
+          enablement: true
+          pages-branch: gh-pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: 'site'  # Ensure this matches your mkdocs build output
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          source: 'site'
